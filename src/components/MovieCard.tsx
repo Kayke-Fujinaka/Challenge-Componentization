@@ -1,36 +1,27 @@
-import { Star, Clock } from 'react-feather';
+import { Clock, Star } from "react-feather";
+import { IMovieCard } from "../interfaces/MovieCard";
 
-import '../styles/movie-card.scss';
+import "../styles/movie-card.scss";
 
-interface MovieCardProps {
-  title: string;
-  poster: string;
-  rating: string;
-  runtime: string;
-}
-
-export function MovieCard(props: MovieCardProps) {
+export function MovieCard({ title, poster, rating, runtime }: IMovieCard) {
   return (
     <div className="movie-card">
-      <img
-        src={props.poster}
-        alt={props.title}
-      />
+      <img src={poster} alt={title} />
 
       <div>
         <div className="movie-info">
-          <span>{props.title}</span>
+          <span>{title}</span>
           <div className="meta">
             <div>
-              <Star /> {props.rating}
+              <Star /> {rating}
             </div>
 
             <div>
-              <Clock /> {props.runtime}
+              <Clock /> {runtime}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
